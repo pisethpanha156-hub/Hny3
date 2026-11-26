@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy New Year 2027 ♡</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: #080b25 url("newyear.png") center center / cover fixed no-repeat;
+    background-color: #080b25;
+    color: white;
+    font-family: Georgia, 'Times New Roman', serif;
+    text-align: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 8, 30, .28),
+        rgba(10, 9, 37, .35)
+    );
+    z-index: -1;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    padding: 25px 15px;
+    flex-wrap: wrap;
+}
+
+nav a, #musicToggle {
+    color: #e9d7ff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+    font-family: inherit;
+}
+
+nav a:hover, #musicToggle:hover {
+    color: #ffd879;
+    text-shadow: 0 0 12px #ffd879;
+}
+
+/* STARS */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff6cf;
+    box-shadow: 0 0 8px #fff, 0 0 15px #b9a4ff;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.4); }
+}
+
+/* MAIN */
+
+main {
+    position: relative;
+    z-index: 2;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px 80px;
+}
+
+.crown {
+    color: #ffda83;
+    font-size: 35px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 0 12px #ffc65c);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+.subtitle {
+    color: #e9d5ff;
+    font-size: 15px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    animation: appear 1.5s ease;
+}
+
+h1 {
+    font-size: clamp(38px, 7vw, 75px);
+    font-weight: normal;
+    color: #ffe4a1;
+    text-shadow: 0 0 12px #dba94b, 0 0 30px #bd8bff;
+    animation: appear 1.5s ease;
+}
+
+.year {
+    position: relative;
+    display: inline-block;
+    margin: 12px 0 25px;
+    font-size: clamp(90px, 19vw, 175px);
+    line-height: 1.1;
+    font-weight: bold;
+    letter-spacing: 5px;
+    background: linear-gradient(
+        180deg,
+        #fff5c7 10%,
+        #ffd36e 45%,
+        #b77a2b 90%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 15px rgba(255, 193, 82, .55));
+    animation: yearGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes yearGlow {
+    from { filter: drop-shadow(0 0 10px #b88943); }
+    to { filter: drop-shadow(0 0 28px #ffdb88); }
+}
+
+.orbit {
+    position: absolute;
+    width: 125%;
+    height: 38%;
+    left: -12.5%;
+    top: 34%;
+    border: 2px solid rgba(255, 220, 145, .8);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    box-shadow: 0 0 12px #ffd778;
+    pointer-events: none;
+}
+
+.orbit::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff4bc;
+    border-radius: 50%;
+    top: -5px;
+    left: 18%;
+    box-shadow: 0 0 15px 5px #ffca65;
+}
+
+.welcome {
+    max-width: 550px;
+    color: #eee4ff;
+    line-height: 1.9;
+    font-size: 16px;
+    margin: 0 auto 35px;
+    animation: appear 2s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* COUNTDOWN */
+
+.countdown-section {
+    margin: 15px 0 35px;
+}
+
+.countdown-title {
+    color: #ffe0a1;
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    min-width: 75px;
+    padding: 15px 12px;
+    border: 1px solid rgba(255, 222, 167, .35);
+    border-radius: 12px;
+    background: rgba(20, 15, 55, .45);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(190, 151, 255, .1);
+}
+
+.time-box span {
+    display: block;
+    color: #ffe2a2;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.time-box small {
+    color: #d5c6ed;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* BUTTONS */
+
+.celebrate-btn, .wish-btn {
+    border: 1px solid #ffdb91;
+    color: #fff0c5;
+    background: linear-gradient(135deg, #5b397f, #302252);
+    border-radius: 50px;
+    padding: 15px 35px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 209, 126, .2);
+    transition: .3s;
+    font-family: inherit;
+}
+
+.celebrate-btn:hover, .wish-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(255, 211, 126, .55);
+    background: linear-gradient(135deg, #8055a7, #443064);
+}
+
+/* WISHES */
+
+#wishes {
+    padding: 50px 20px 70px;
+    position: relative;
+    z-index: 3;
+}
+
+#wishes h2 {
+    color: #ffe0a1;
+    font-weight: normal;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+#revealArea {
+    min-height: 80px;
+}
+
+#fullWish {
+    display: none;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 30px;
+    border: 1px solid rgba(255, 222, 167, .3);
+    border-radius: 20px;
+    background: rgba(14, 12, 43, .65);
+    backdrop-filter: blur(10px);
+    color: #f2e7ff;
+    line-height: 2;
+    animation: appear 1s ease;
+}
+
+#fullWish h3 {
+    color: #ffdf9b;
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+/* CELEBRATION */
+
+#celebration {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    top: -20px;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(900deg);
+        opacity: 0;
+    }
+}
+
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ffe49c;
+    box-shadow:
+        0 -35px #ffdf8a,
+        25px -25px #c7a3ff,
+        35px 0 #ffe49c,
+        25px 25px #c7a3ff,
+        0 35px #ffe49c,
+        -25px 25px #c7a3ff,
+        -35px 0 #ffe49c,
+        -25px -25px #c7a3ff;
+    animation: burst 1s ease-out forwards;
+}
+
+@keyframes burst {
+    from { transform: scale(.1); opacity: 1; }
+    to { transform: scale(2.5); opacity: 0; }
+}
+
+/* FOOTER */
+
+footer {
+    position: relative;
+    z-index: 3;
+    padding: 25px 15px;
+    color: #d6c3ed;
+    font-size: 13px;
+    letter-spacing: 2px;
+    background: rgba(5, 6, 25, .25);
+}
+
+footer span {
+    color: #ffd47d;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    nav {
+        gap: 18px;
+        padding: 20px 10px;
+    }
+
+    nav a, #musicToggle {
+        font-size: 12px;
+    }
+
+    main {
+        padding-top: 55px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .welcome {
+        font-size: 14px;
+    }
+
+    .countdown {
+        gap: 8px;
+    }
+
+    .time-box {
+        min-width: 65px;
+        padding: 12px 8px;
+    }
+
+    .time-box span {
+        font-size: 24px;
+    }
+
+    .time-box small {
+        font-size: 9px;
+    }
+
+    .celebrate-btn, .wish-btn {
+        padding: 13px 25px;
+        font-size: 13px;
+    }
+
+    #fullWish {
+        padding: 22px;
+        font-size: 14px;
+    }
+
+    body {
+        background-attachment: scroll;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#wishes">Wishes</a>
+    <a href="#countdown">Countdown</a>
+    <button id="musicToggle">♫ Music: OFF</button>
+</nav>
+
+<audio id="bgMusic" src="music.mp3" loop></audio>
+
+<main id="home">
+
+    <div class="crown">♛</div>
+
+    <p class="subtitle">A new beginning awaits</p>
+
+    <h1>Happy New Year</h1>
+
+    <div class="year">
+        2027
+        <div class="orbit"></div>
+    </div>
+
+    <p class="welcome">
+        A beautiful new chapter is about to begin.
+        May this year bring you endless happiness,
+        wonderful memories, and countless reasons to smile.
+    </p>
+
+    <section class="countdown-section" id="countdown">
+        <p class="countdown-title">The magic begins in</p>
+
+        <div class="countdown" id="timer">
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>DAYS</small>
+            </div>
+
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>HOURS</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>MINUTES</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>SECONDS</small>
+            </div>
+        </div>
+    </section>
+
+    <button class="celebrate-btn" onclick="celebrateManually()">
+        Let's Celebrate! ✧
+    </button>
+
+</main>
+
+<section id="wishes">
+
+    <h2>A little something for you</h2>
+
+    <div id="revealArea">
+        <button class="wish-btn" id="wishButton">
+            A little wish for you ♡
+        </button>
+    </div>
+
+    <div id="fullWish">
+        <h3>My Wish for You ✨</h3>
+
+        May 2027 be filled with happiness, peace,
+        and beautiful surprises.
+
+        May every little dream find its way to you,
+        every challenge make you stronger,
+        and every day give you a reason to smile.
+
+        Thank you for being part of this year.
+
+        <br><br>
+        Here's to another beautiful chapter. ♡
+
+        <br><br>
+        <span style="color:#ffdc91;">Happy New Year 2027!</span>
+    </div>
+
+</section>
+
+<div id="celebration"></div>
+
+<footer>
+    Made with <span>♡</span> by Panha
+</footer>
+
+<script>
+
+/* RANDOM STARS */
+
+const starContainer = document.getElementById("stars");
+
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.animationDelay = Math.random() * 4 + "s";
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+
+    starContainer.appendChild(star);
+}
+
+/* CAMBODIA COUNTDOWN - UTC+7 */
+
+const targetDate = Date.UTC(2026, 11, 31, 17, 0, 0);
+
+let celebrationStarted = false;
+
+function updateCountdown() {
+
+    const now = Date.now();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        if (!celebrationStarted) {
+            celebrationStarted = true;
+            startCelebration();
+        }
+
+        return;
+    }
+
+    const days = Math.floor(difference / 86400000);
+    const hours = Math.floor((difference % 86400000) / 3600000);
+    const minutes = Math.floor((difference % 3600000) / 60000);
+    const seconds = Math.floor((difference % 60000) / 1000);
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+/* CONFETTI AND FIREWORKS */
+
+function startCelebration() {
+
+    const celebration = document.getElementById("celebration");
+
+    celebration.style.display = "block";
+
+    // Confetti
+
+    for (let i = 0; i < 180; i++) {
+
+        const piece = document.createElement("div");
+        piece.className = "confetti";
+
+        piece.style.left = Math.random() * 100 + "%";
+        piece.style.background =
+            ["#ffdc85", "#c9a5ff", "#ffffff", "#f5b9d5"]
+            [Math.floor(Math.random() * 4)];
+
+        piece.style.animationDuration =
+            (3 + Math.random() * 4) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * 3 + "s";
+
+        celebration.appendChild(piece);
+    }
+
+    // Fireworks
+
+    function createFirework() {
+
+        const firework = document.createElement("div");
+        firework.className = "firework";
+
+        firework.style.left = (10 + Math.random() * 80) + "%";
+        firework.style.top = (15 + Math.random() * 55) + "%";
+
+        celebration.appendChild(firework);
+
+        setTimeout(() => firework.remove(), 1100);
+    }
+
+    let fireworks = setInterval(createFirework, 500);
+
+    setTimeout(() => {
+        clearInterval(fireworks);
+        celebration.style.display = "none";
+        celebration.innerHTML = "";
+    }, 10000);
+}
+
+/* MANUAL CELEBRATION BUTTON */
+
+function celebrateManually() {
+    startCelebration();
+}
+
+/* REVEAL WISH */
+
+document.getElementById("wishButton").addEventListener("click", function() {
+
+    document.getElementById("fullWish").style.display = "block";
+
+    this.style.display = "none";
+
+});
+
+/* MUSIC ON/OFF */
+
+const music = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
+
+musicToggle.addEventListener("click", async function() {
+
+    if (music.paused) {
+
+        try {
+            await music.play();
+            musicToggle.textContent = "♫ Music: ON";
+        } catch (error) {
+            musicToggle.textContent = "♫ Music: OFF";
+            alert("Please add music.mp3 to your website folder.");
+        }
+
+    } else {
+
+        music.pause();
+        musicToggle.textContent = "♫ Music: OFF";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
